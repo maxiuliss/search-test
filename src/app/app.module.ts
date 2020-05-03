@@ -7,20 +7,20 @@ import { AppComponent } from './app.component';
 import { SearchModule } from './search/search.module';
 import { ServicesModule } from './services/services.module';
 import { DataModule } from '@search-app/data';
+import { LoadingComponent } from './shared/components/loading/loading.component';
+import { ErrorComponent } from './shared/components/error/error.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, LoadingComponent, ErrorComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     SearchModule,
     ServicesModule.forRoot(),
-    DataModule.forRoot()
+    DataModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

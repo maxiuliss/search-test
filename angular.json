@@ -155,6 +155,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "searching-test"
+    }
+  },
+  "defaultProject": "searching-test",
+  "cli": {
+    "analytics": false
+  }
 }
