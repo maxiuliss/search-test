@@ -13,25 +13,28 @@ export function loadUsers(repo: UserRepository) {
   return result;
 }
 
-@NgModule()
+@NgModule({
+  declarations: [],
+  providers: [
+    MerchantRepository,
+    UserRepository,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadMerchants,
+      deps: [MerchantRepository], multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadUsers,
+      deps: [UserRepository],
+      multi: true
+    }
+  ]
+})
 export class DataModule {
   public static forRoot(): ModuleWithProviders<DataModule> {
     return {
-      ngModule: DataModule,
-      providers: [
-        MerchantRepository,
-        UserRepository,
-        { provide: APP_INITIALIZER,
-          useFactory: loadMerchants,
-          deps: [MerchantRepository], multi: true
-        },
-        {
-          provide: APP_INITIALIZER,
-          useFactory: loadUsers,
-          deps: [UserRepository],
-          multi: true
-        }
-      ]
+      ngModule: DataModule
     };
   }
- }
+}
