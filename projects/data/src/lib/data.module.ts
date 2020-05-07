@@ -15,7 +15,7 @@ export function loadUsers(repo: UserRepository) {
 
 @NgModule()
 export class DataModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<DataModule> {
     return {
       ngModule: DataModule,
       providers: [
