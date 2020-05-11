@@ -9,6 +9,7 @@ import { ServicesModule } from './services/services.module';
 import { DataModule } from '@search-app/data';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { ErrorComponent } from './shared/components/error/error.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent, LoadingComponent, ErrorComponent],
@@ -19,8 +20,9 @@ import { ErrorComponent } from './shared/components/error/error.component';
     SearchModule,
     ServicesModule.forRoot(),
     DataModule.forRoot(),
+    StoreModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
